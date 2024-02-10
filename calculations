@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void mean_function(int array[], int size);
+void median_function(int array[], int size);
+void mode_function(int array[], int size);
+
+int main()
+{
+    int array[]={7,8,2,4,8,17,3,17,91,9,43,40,17};
+    int size=13;
+    int *Ptr;
+    Ptr = &array[0];
+    int j;
+    int *Ptr2;
+    Ptr2 = &array[j];
+    int i;
+    int *Ptr4;
+    Ptr4 = &array[i];
+    mean_function(array, size);
+    median_function(array, size);
+    mode_function(array, size);
+    
+    return 0;
+}
+
+void mean_function(int array[], int size)
+{
+    float sum=0;
+    int i;
+    int *Ptr;
+    Ptr = &array[0];
+    for(i=0; i<size; i++)
+    {
+        sum = sum + (*Ptr);
+        *Ptr++;
+    }
+    float mean = sum / size;
+    printf("The mean of the array is %f \n", mean);
+}
+
+void median_function(int array[], int size)
+{
+    int t;
+    int i, j, temp;
+    int *Ptr3;
+    Ptr3 = &array[size/2];
+    for(i=0; i<size; i++)
+    {
+        for(j=0; j<size; j++)
+        {
+            int *Ptr2;
+            Ptr2 = &array[j];
+            int b = *Ptr2;
+            if(*Ptr2==b)
+            {
+                if(b>*(Ptr2+1))
+                {
+                    temp = (*Ptr2);
+                    *Ptr2 = t;
+                    t=*(Ptr2+1);
+                    (*(Ptr2+1)) = temp;
+                }
+            }
+        }
+    }
+    int median = (*Ptr3);
+    printf("The median of the array is %d \n", median);
+}
+
+void mode_function(int array[], int size)
+{
+    int i, j, count, mode; 
+    int max=1;
+    for(i=0; i<size; i++)
+    {
+        int (*Ptr4);
+        Ptr4 = &array[i];
+        count=1;
+        for(j=0; j<size; j++)
+        {
+            int (*Ptr2);
+            Ptr2 = &array[j];
+            if((*Ptr4)==(*Ptr2))
+            {
+                count = count + 1;
+            }
+            if(count>max)
+            {
+                max = count;
+                mode = (*Ptr4);
+            }
+        }
+    }
+    printf("The mode of the array is %d", mode);
+}
